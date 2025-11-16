@@ -2,7 +2,7 @@
 ## CmdArgLib\_CommandAction
 
 This package contains three examples using the `CommandAction` macro provided
-by the [Command Argument Libary](https://github.com/ouser4629/cmd-arg-lib.git).
+by the [Command Argument Libary](https://github.com/ouser4629/cmd-arg-lib26.git).
 
 * Cmd_1_Simple - a simple command tree with only two levels
 * Cmd_2_Stateful - the same as Cmd\_1\_Simple using a stateful command tree
