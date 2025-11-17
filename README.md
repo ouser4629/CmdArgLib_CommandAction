@@ -40,20 +40,28 @@ In the new tab:
 
 ```
 > ls -1F | grep '*'
-CmdArgLibMacrosModule-tool*
-mf1-basic*
-mf2-man*
-mf3-enums*
-mf4-lists*
-mf5-positionals*
-mf6-show-macros*
-mf7-errors*
+C> ls -lF | grep '*'
+-rwxr-xr-x   1 po  staff    446648 Nov 17 12:53 ca1-simple*
+-rwxr-xr-x   1 po  staff    425568 Nov 17 12:53 ca2-stateful*
+-rwxr-xr-x   1 po  staff    510640 Nov 17 12:53 ca3-text-math*
+-rwxr-xr-x   1 po  staff  15579304 Nov 17 12:53 CmdArgLibMacrosModule-tool*
 mf8-sed*
 ```
 
 ```
-> ./mf1-basic --version
-  version 0.1.0 - 2025-10-14
+>> ./ca3-text-math tree
+
+ca3-text-math
+├── .text
+│   ├── .phrases - Print sorted phrases.
+│   └── .quotes
+│       ├── .general - Print quotes about life in general.
+│       └── .computing - Print quotes about computing.
+├── .math
+│   ├── .add - Add a list of doubles.
+│   └── .mult - Multiply a list of doubles.
+├── .general - Print quotes about life in general.
+└── tree - Print the tree hierarchy.
 ```
 
 </details>
@@ -67,7 +75,7 @@ If you want to experiment it is recomended that you use the follow cycle.
 * Go to the "build" terminal tab at ~/Temp/CmdArgLib_CommandAction
 * Rebuild: `> swift build -c release`
 * Go to the "release" terminal tab at ~/Temp/CmdArgLib_CommandAction/.build/release
-* Run the programs `> ./mf...`
+* Run the programs `> ./ca...`
 
 Occasionally you might want to run `rm -rf .build .swiftpm` in the build tab. If
 you do, be sure to close the current release tab, and set up a new one after the
