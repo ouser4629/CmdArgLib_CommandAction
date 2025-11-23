@@ -15,6 +15,7 @@
 // swift-tools-version: 6.2
 import PackageDescription
 
+//let cmdArgLib = "Cmd_Arg_Lib"
 let cmdArgLib = "cmd-arg-lib26"
 
 let package = Package(
@@ -28,6 +29,7 @@ let package = Package(
     ],
 
     dependencies: [
+//        .package(path: "/Users/po/ZLocal/ZDev/Swift/Lib/CmdArgLibSources/Cmd_Arg_Lib"),
         .package(url: "https://github.com/ouser4629/cmd-arg-lib26.git", from: "0.1.0"),
     ],
 

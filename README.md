@@ -49,7 +49,7 @@ mf8-sed*
 ```
 
 ```
->> ./ca3-text-math tree
+> ./ca3-text-math tree
 
 ca3-text-math
 ├── .text
