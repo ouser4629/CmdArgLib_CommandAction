@@ -49,7 +49,7 @@ struct TopLevel {
     private static func work(
         l lower: Flag,
         u upper: Flag,
-        help: MetaFlag = MetaFlag(helpElements: help),
+        h__help help: MetaFlag = MetaFlag(helpElements: help),
         nodePath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) throws -> [PhraseFormatter] {
@@ -60,8 +60,9 @@ struct TopLevel {
         .text("DESCRIPTION:", "Print quotes by famous people."),
         .synopsis("\nUSAGE:"),
         .text("\nOPTIONS:"),
-        .parameter("lower", "Lowercase the output"),
-        .parameter("upper", "Uppercase the output"),
+        .parameter("lower", "Lowercase the output of subcommands"),
+        .parameter("upper", "Uppercase the output of subcommands"),
+        .parameter("help", "Show this help screen"),
         .text("\nNOTE:\n", "The $L{lower} and $L{upper} options shadow each other."),
     ]
 

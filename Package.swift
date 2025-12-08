@@ -30,7 +30,7 @@ let package = Package(
 
     dependencies: [
         //        .package(path: "/Users/po/ZLocal/ZDev/Swift/Lib/CmdArgLibSources/Cmd_Arg_Lib"),
-        .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.1.2")
+        .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.1.5")
     ],
 
     targets: [
