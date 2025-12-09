@@ -53,6 +53,6 @@ struct Phrases {
         .synopsis("\nUSAGE:"),
         .text("\nOPTION:"),
         .parameter("sortOrder", "The sort order for printing the phrases."),
-        .text("\nNOTE:\n", "The available sort orders are \(SortOrder.casesJoined(quoteChar: "'"))."),
+        .text("\nNOTE:\n", "The available sort orders are \(SortOrder.casesJoinedWith("and"))."),
     ]
 }

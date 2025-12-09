@@ -34,7 +34,7 @@ struct TopLevel {
     ) {}
 
     private static let help: [ShowElement] = [
-        .text("DESCRIPTION:", "Greet or print some famous quotes."),
+        .text("DESCRIPTION:", "Print a greeting or print some famous quotes."),
         .synopsis("\nUSAGE:"),
     ]
 
