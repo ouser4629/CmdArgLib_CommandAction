@@ -25,6 +25,7 @@ struct Quotes {
         name: "quotes",
         synopsis: "Print some quotes.",
         action: action,
+        config: actionConfig(),
         children: [GeneralQuotes.command, ComputingQuotes.command]
     )
 
@@ -56,7 +57,8 @@ struct ComputingQuotes {
     static let command = SimpleCommand(
         name: "computing",
         synopsis: "Print quotes about computing.",
-        action: action)
+        action: action,
+        config: actionConfig())
 }
 
 let helpForComputingQuotes: [ShowElement] = [
@@ -84,7 +86,8 @@ struct GeneralQuotes {
     static let command = SimpleCommand(
         name: "general",
         synopsis: "Print quotes about life in general.",
-        action: action)
+        action: action,
+        config: actionConfig())
 
     @CommandAction(shadowGroups: ["lower upper"])
     private static func work(

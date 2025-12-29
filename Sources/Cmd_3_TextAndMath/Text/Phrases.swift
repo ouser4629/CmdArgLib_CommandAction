@@ -24,7 +24,9 @@ struct Phrases {
     static let command = StatefulCommand<GlobalOptions>(
         name: ".phrases",
         synopsis: "Print sorted phrases.",
-        action: action)
+        action: action,
+        config: actionConfig()
+    )
 
     @CommandAction
     private static func work(

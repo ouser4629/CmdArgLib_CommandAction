@@ -29,6 +29,7 @@ struct TopNode {
         name: "ca1-simple",
         synopsis: "Cmd_1 - Simple Commands.",
         action: action,
+        config: actionConfig(),
         children: [Greet.command, Quotes.command])
 
     @CommandAction

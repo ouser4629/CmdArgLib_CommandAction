@@ -62,7 +62,9 @@ struct Greet {
     static let command = SimpleCommand(
         name: "greet",
         synopsis: "Print a greeting.",
-        action: action)
+        action: action,
+        config: actionConfig()
+    )
 
     private static let helpElements: [ShowElement] = [
         .text("DESCRIPTION:", "Print a greeting."),
