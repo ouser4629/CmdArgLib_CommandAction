@@ -34,17 +34,10 @@ import CmdArgLib
 import CmdArgLibMacros
 import LocalHelpers
 
-
 // FIXME: ./ca3-text-math .math --help -- puts [-h] in wrong place
 
 @main
 struct TopNode {
-    
-    private static let phoneyNode = Node(
-        name: "ca3-text-math",
-        synopsis: "Run text and math commands",
-        subnodes: [Text.command.asNode, Math.command.asNode, GeneralQuotes.command.asNode]
-    )
 
     private static let topNode = StatefulCommand<GlobalOptions>(
         name: "ca3-text-math",
@@ -57,7 +50,7 @@ struct TopNode {
         n name: Name? = nil,
         v verbose: Flag,
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        t__tree: MetaFlag = MetaFlag(treeFor: phoneyNode),
+        t__tree: MetaFlag = MetaFlag(treeFor: "ca3-text-math", synopsis: "Run text and math commands"),
         version: MetaFlag = MetaFlag(string: "version 0.1"),
         nodePath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
@@ -78,7 +71,7 @@ struct TopNode {
         .commandNode(Text.command.asNode),
         .commandNode(Math.command.asNode),
         .commandNode(GeneralQuotes.command.asNode),
-       ]
+    ]
 
     private static func main() async {
         await runCommand(topNode)

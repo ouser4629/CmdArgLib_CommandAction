@@ -18,14 +18,8 @@ import LocalHelpers
 
 @main
 struct TopNode {
-    
-    private static let phoneyNode = Node(
-        name: "cf-ca1-simple",
-        synopsis: "Print a greeting or print some famous quotes.",
-        subnodes: [Greet.command.asNode, Quotes.command.asNode]
-    )
 
-    private static let topLevel = SimpleCommand(
+    private static let topNode = SimpleCommand(
         name: "ca1-simple",
         synopsis: "Cmd_1 - Simple Commands.",
         action: action,
@@ -35,7 +29,8 @@ struct TopNode {
     @CommandAction
     private static func work(
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        t__tree: MetaFlag = MetaFlag(treeFor: phoneyNode),
+        t__tree: MetaFlag = MetaFlag(
+            treeFor: "cf-ca1-simple", synopsis: "Print a greeting or print some famous quotes.")
     ) {}
 
     private static let help: [ShowElement] = [
@@ -53,9 +48,9 @@ struct TopNode {
         do {
             var (_, tokens) = commandLineNameAndWords()
             if tokens.isEmpty { tokens = ["--help"] }
-            try await topLevel.run(tokens: tokens, nodePath: [])
+            try await topNode.run(tokens: tokens, nodePath: [])
         } catch {
-            printErrorAndExit(for: error, callNames: [topLevel.name])
+            printErrorAndExit(for: error, callNames: [topNode.name])
         }
     }
 }

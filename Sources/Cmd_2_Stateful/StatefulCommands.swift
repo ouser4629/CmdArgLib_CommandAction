@@ -37,13 +37,7 @@ import LocalHelpers
 @main
 struct TopNode {
     
-    private static let phoneyNode = Node(
-        name: "ca2-stateful",
-        synopsis: "Cmd_2 - Stateful commands.",
-        subnodes: [Cmd02General.node.asNode, Cmd02Computing.node.asNode]
-    )
-
-    private static let topLevel = StatefulCommand<PhraseFormatter>(
+    private static let topNode = StatefulCommand<PhraseFormatter>(
         name: "ca2-stateful",
         synopsis: "Cmd_2 - Stateful commands.",
         action: Self.action,
@@ -53,7 +47,7 @@ struct TopNode {
     private static func work(
         l lower: Flag,
         u upper: Flag,
-        t__tree: MetaFlag = MetaFlag(treeFor: phoneyNode),
+        t__tree: MetaFlag = MetaFlag(treeFor: "ca2-stateful", synopsis: "Cmd_2 - Stateful commands."),
         h__help: MetaFlag = MetaFlag(helpElements: help),
         nodePath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
@@ -76,7 +70,7 @@ struct TopNode {
     ]
 
     private static func main() async {
-        await runCommand(topLevel)
+        await runCommand(topNode)
     }
 }
 
