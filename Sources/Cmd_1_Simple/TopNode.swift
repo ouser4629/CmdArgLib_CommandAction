@@ -57,7 +57,6 @@ struct TopNode {
         .commandNode(Quotes.command.asNode),
     ]
 
-
     private static func main() async {
         do {
             var (_, tokens) = commandLineNameAndWords()
