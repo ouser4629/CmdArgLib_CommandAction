@@ -29,9 +29,21 @@ struct TopNode {
     @CommandAction
     private static func work(
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        t__tree: MetaFlag = MetaFlag(
-            treeFor: "cf-ca1-simple", synopsis: "Print a greeting or print some famous quotes.")
+        t__tree: MetaFlag = MetaFlag(treeFor: "cf-ca1-simple", synopsis: "Print a greeting or print some famous quotes."),
+        m__manpage: MetaFlag = MetaFlag(manPageElements: manpage)
     ) {}
+
+    private static let manpage: [ShowElement] = [
+        .prologue(description: "Print a greeting or print some famous quotes."),
+        .synopsis("SYNOPSIS", trailer: "Command"),
+        .lines("\nOPTIONS:"),
+        .parameter("h__help", "Show help information"),
+        .parameter("t__tree", "Show command tree"),
+        .parameter("m__manpage", "Print manpage mdoc code"),
+        .lines("\nSUBCOMMANDS:"),
+        .commandNode(Greet.command.asNode),
+        .commandNode(Quotes.command.asNode),
+    ]
 
     private static let help: [ShowElement] = [
         .text("DESCRIPTION:", "Print a greeting or print some famous quotes."),
@@ -39,10 +51,12 @@ struct TopNode {
         .text("\nOPTIONS:"),
         .parameter("h__help", "Show help information"),
         .parameter("t__tree", "Show command tree"),
+        .parameter("m__manpage", "Print manpage mdoc code"),
         .text("\nSUBCOMMANDS:"),
         .commandNode(Greet.command.asNode),
         .commandNode(Quotes.command.asNode),
     ]
+
 
     private static func main() async {
         do {
