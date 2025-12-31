@@ -36,11 +36,11 @@ struct TopNode {
     private static let manpage: [ShowElement] = [
         .prologue(description: "Print a greeting or print some famous quotes."),
         .synopsis("SYNOPSIS", trailer: "Command"),
-        .lines("\nOPTIONS:"),
+        .lines("\nOPTIONS"),
         .parameter("h__help", "Show help information"),
         .parameter("t__tree", "Show command tree"),
         .parameter("m__manpage", "Print manpage mdoc code"),
-        .lines("\nSUBCOMMANDS:"),
+        .lines("\nSUBCOMMANDS"),
         .commandNode(Greet.command.asNode),
         .commandNode(Quotes.command.asNode),
     ]
