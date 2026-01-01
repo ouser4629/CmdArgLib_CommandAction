@@ -61,7 +61,7 @@ struct TopCommand {
         do {
             var (_, tokens) = commandLineNameAndWords()
             if tokens.isEmpty { tokens = ["--help"] }
-            try await topCommand.run(tokens: tokens, nodePath: [])
+            try await topCommand.run(tokens: tokens, commandPath: [])
         } catch {
             printErrorAndExit(for: error, callNames: [topCommand.name])
         }

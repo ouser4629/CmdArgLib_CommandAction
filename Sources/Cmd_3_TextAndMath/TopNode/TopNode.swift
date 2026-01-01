@@ -52,7 +52,7 @@ struct TopCommands {
         h__help: MetaFlag = MetaFlag(helpElements: help),
         t__tree: MetaFlag = MetaFlag(treeFor: "ca3-text-math", synopsis: "Run text and math commands"),
         version: MetaFlag = MetaFlag(string: "version 0.1"),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) throws -> [GlobalOptions] {
         let state = GlobalOptions(name: name, verbose: verbose)

@@ -31,7 +31,7 @@ struct Quotes {
     @CommandAction
     private static func work(
         h__help help: MetaFlag = MetaFlag(helpElements: help),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) throws -> [GlobalOptions] {
         return state
@@ -56,7 +56,7 @@ struct GeneralQuotes {
     private static func work(
         _ count: Count,
         h__help help: MetaFlag = MetaFlag(helpElements: quotesHelpFor("life in general")),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) -> [GlobalOptions] {
         guard let formatter = state.first else { fatalError() }
@@ -76,7 +76,7 @@ struct ComputingQuotes {
     private static func work(
         _ count: Count,
         h__help help: MetaFlag = MetaFlag(helpElements: quotesHelpFor("computing")),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) -> [GlobalOptions] {
         guard let formatter = state.first else { fatalError() }

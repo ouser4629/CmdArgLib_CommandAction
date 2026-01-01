@@ -18,7 +18,7 @@
 //    1. All the commands or instances of xbStatefulCommand<PhraseFormatter>
 //    2. We say the tree has type PhraseFormatter
 //    3. The state is [PhraseFormatter]
-//    4. The work functions all have nodePath and state as their last two parameters
+//    4. The work functions all have commandPath and state as their last two parameters
 //    5. The work functions all return state.
 //
 // Suggested command calls:
@@ -50,7 +50,7 @@ struct TopCommand {
         t__tree: MetaFlag = MetaFlag(treeFor: "ca2-stateful", synopsis: "Cmd_2 - Stateful commands."),
         m__manpage: MetaFlag = MetaFlag(manPageElements: manpage),
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        nodePath: [StatefulCommand<PhraseFormatter>],
+        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) throws -> [PhraseFormatter] {
         return [PhraseFormatter(upper: upper, lower: lower)]
@@ -89,7 +89,7 @@ struct Cmd02General {
     private static func work(
         _ count: Count,
         help: MetaFlag = MetaFlag(helpElements: cmd2HelpFor("life in general")),
-        nodePath: [StatefulCommand<PhraseFormatter>],
+        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) -> [PhraseFormatter] {
         guard let formatter = state.first else { fatalError() }
@@ -109,7 +109,7 @@ struct Cmd02Computing {
     private static func work(
         _ count: Count,
         help: MetaFlag = MetaFlag(helpElements: cmd2HelpFor("computing")),
-        nodePath: [StatefulCommand<PhraseFormatter>],
+        commandPath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
     ) -> [PhraseFormatter] {
         guard let formatter = state.first else { fatalError() }

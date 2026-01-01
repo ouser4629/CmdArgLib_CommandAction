@@ -33,7 +33,7 @@ struct Phrases {
         o__order sortOrder: SortOrder,
         _ phrases: Variadic<Phrase>,
         h__help help: MetaFlag = MetaFlag(helpElements: phrasesHelp),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) -> [GlobalOptions] {
         printBlame(state)

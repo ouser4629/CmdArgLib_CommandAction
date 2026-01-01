@@ -32,7 +32,7 @@ struct Text {
         l lower: Flag,
         u upper: Flag,
         h__help help: MetaFlag = MetaFlag(helpElements: textHelp),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) throws -> [GlobalOptions] {
         let textFormat = PhraseFormatter(upper: upper, lower: lower)

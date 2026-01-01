@@ -29,7 +29,7 @@ struct Math {
         decimals: Int = 2,
         noGrouping: Flag,
         h__help help: MetaFlag = MetaFlag(helpElements: help),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) -> [GlobalOptions] {
         var newState = state.first ?? GlobalOptions()
@@ -58,7 +58,7 @@ struct Add {
         n: Flag,
         _ doubles: Variadic<Double>,
         h__help help: MetaFlag = MetaFlag(helpElements: help),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) async throws {
         printBlame(state)
@@ -82,7 +82,7 @@ struct Mult {
         n: Flag,
         _ doubles: Variadic<Double>,
         h__help help: MetaFlag = MetaFlag(helpElements: help),
-        nodePath: [StatefulCommand<GlobalOptions>],
+        commandPath: [StatefulCommand<GlobalOptions>],
         state: [GlobalOptions]
     ) async throws {
         printBlame(state)
