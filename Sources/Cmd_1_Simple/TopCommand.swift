@@ -27,9 +27,9 @@ struct TopCommand {
         children: [Greet.command, Quotes.command])
 
     @CommandAction
-    private static func work(
+    private static func ca1Simple(
         h__help: MetaFlag = MetaFlag(helpElements: help),
-        t__tree: MetaFlag = MetaFlag(treeFor: "cf-ca1-simple", synopsis: "Print a greeting or print some famous quotes."),
+        t__tree: MetaFlag = MetaFlag(treeFor: nil),
         m__manpage: MetaFlag = MetaFlag(manPageElements: manpage)
     ) {}
 
