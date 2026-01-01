@@ -17,9 +17,9 @@ import CmdArgLibMacros
 import LocalHelpers
 
 @main
-struct TopNode {
+struct TopCommand {
 
-    private static let topNode = SimpleCommand(
+    private static let topCommand = SimpleCommand(
         name: "ca1-simple",
         synopsis: "Cmd_1 - Simple Commands.",
         action: action,
@@ -47,7 +47,7 @@ struct TopNode {
 
     private static let help: [ShowElement] = [
         .text("DESCRIPTION:", "Print a greeting or print some famous quotes."),
-        .synopsis("\nUSAGE:", trailer: "Command"),
+        .synopsis("\nUSAGE:", trailer: "subcommand"),
         .text("\nOPTIONS:"),
         .parameter("h__help", "Show help information"),
         .parameter("t__tree", "Show command tree"),
@@ -61,9 +61,9 @@ struct TopNode {
         do {
             var (_, tokens) = commandLineNameAndWords()
             if tokens.isEmpty { tokens = ["--help"] }
-            try await topNode.run(tokens: tokens, nodePath: [])
+            try await topCommand.run(tokens: tokens, nodePath: [])
         } catch {
-            printErrorAndExit(for: error, callNames: [topNode.name])
+            printErrorAndExit(for: error, callNames: [topCommand.name])
         }
     }
 }

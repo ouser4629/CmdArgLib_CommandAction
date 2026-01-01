@@ -37,9 +37,9 @@ import LocalHelpers
 // FIXME: ./ca3-text-math .math --help -- puts [-h] in wrong place
 
 @main
-struct TopNode {
+struct TopCommands {
 
-    private static let topNode = StatefulCommand<GlobalOptions>(
+    private static let topCommand = StatefulCommand<GlobalOptions>(
         name: "ca3-text-math",
         synopsis: "Do text and math stuff.",
         action: action,
@@ -74,6 +74,6 @@ struct TopNode {
     ]
 
     private static func main() async {
-        await runCommand(topNode)
+        await runCommand(topCommand)
     }
 }

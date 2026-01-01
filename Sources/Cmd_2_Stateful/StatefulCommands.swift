@@ -35,9 +35,9 @@ import CmdArgLibMacros
 import LocalHelpers
 
 @main
-struct TopNode {
-    
-    private static let topNode = StatefulCommand<PhraseFormatter>(
+struct TopCommand {
+
+    private static let topCommand = StatefulCommand<PhraseFormatter>(
         name: "ca2-stateful",
         synopsis: "Cmd_2 - Stateful commands.",
         action: Self.action,
@@ -48,6 +48,7 @@ struct TopNode {
         l lower: Flag,
         u upper: Flag,
         t__tree: MetaFlag = MetaFlag(treeFor: "ca2-stateful", synopsis: "Cmd_2 - Stateful commands."),
+        m__manpage: MetaFlag = MetaFlag(manPageElements: manpage),
         h__help: MetaFlag = MetaFlag(helpElements: help),
         nodePath: [StatefulCommand<PhraseFormatter>],
         state: [PhraseFormatter]
@@ -58,19 +59,27 @@ struct TopNode {
     private static let help: [ShowElement] = [
         .text("DESCRIPTION:", "Print quotes by famous people."),
         .synopsis("\nUSAGE:", trailer: "subcommand"),
-        .text("\nOPTIONS:"),
+    ] + parameterElements
+
+    private static let manpage: [ShowElement] = [
+        .prologue(description: "Print quotes by famous people."),
+        .synopsis("SYNOPSIS", trailer: "subcommand"),
+    ] + parameterElements
+
+    private static let parameterElements: [ShowElement] = [
+        .text("\nOPTIONS"),
         .parameter("lower", "Lowercase the output of subcommands"),
         .parameter("upper", "Uppercase the output of subcommands"),
         .parameter("h__help", "Show help information"),
         .parameter("t__tree", "Show command tree"),
-        .text("\nNOTE:\n", "The $L{lower} and $L{upper} options shadow each other."),
-        .text("\nSUBCOMMANDS:"),
+        .text("\nNOTE\n", "The $L{lower} and $L{upper} options shadow each other."),
+        .text("\nSUBCOMMANDS"),
         .commandNode(Cmd02General.node.asNode),
         .commandNode(Cmd02Computing.node.asNode),
     ]
 
     private static func main() async {
-        await runCommand(topNode)
+        await runCommand(topCommand)
     }
 }
 

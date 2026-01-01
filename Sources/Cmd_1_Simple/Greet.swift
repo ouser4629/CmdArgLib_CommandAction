@@ -20,19 +20,6 @@ typealias Greeting = String
 typealias Name = String
 typealias Count = Int
 
-let note1 = """
-    The default for $E{repeats} is a random integer between 1 and 3. 
-    """
-
-let note2 = """
-    The $S{lower} and $S{upper} options shadow each other; only the last one specified 
-    is applicable.
-    """
-
-let note3 = """
-    Bracketed parameters in the synopsis line are not required because they have
-    explicit or implied default values. The other parametets are required.
-    """
 
 let style = SymbolFormatter(textCase: .lower, snakeSeparator: "_", brackets: "<>")
 
@@ -46,8 +33,8 @@ struct Greet {
         c__count repeats: Count? = nil,
         g__greeting greeting: Greeting = "Hello",
         _ name: Name,
-        authors: MetaFlag = MetaFlag(string: "Robert Ford and Jesse James"),
-        h__help help: MetaFlag = MetaFlag(helpElements: helpElements)
+        h__help help: MetaFlag = MetaFlag(helpElements: helpElements),
+        m__manpage manpage: MetaFlag = MetaFlag(manPageElements: manpageElements)
     ) {
         let count = repeats == nil || repeats! < 1 ? (Int.random(in: 1...3)) : repeats!
         var text = "\(greeting) \(name)"
@@ -68,17 +55,39 @@ struct Greet {
 
     private static let helpElements: [ShowElement] = [
         .text("DESCRIPTION:", "Print a greeting."),
-        .synopsis("\nUSAGE:"),
-        .text("\nPARAMETERS:"),
+        .synopsis("\nUSAGE:"),] + parameterElements
+
+    private static let manpageElements: [ShowElement] = [
+        .prologue(description: "Print a greeting."),
+        .synopsis("SYNOPSIS"),] + parameterElements
+
+    private static let parameterElements: [ShowElement] = [
+        .text("\nPARAMETERS"),
         .parameter("includeIndex", "Show index of repeated greetings"),
         .parameter("upper", "Print text in upper case"),
         .parameter("lower", "Print text in lower case"),
-        .parameter("help", "Show this help message"),
         .parameter("repeats", "Repeat the greeting $E{repeats} times"),
         .parameter("greeting", "The greeting to print"),
         .parameter("name", "Name of person to greet, if any"),
-        .text("\nNOTES:\n", note1),
+        .text("\nMETA-FLAGS"),
+        .parameter("help", "Show this help message"),
+        .parameter("manpage","Generate a manpage"),
+        .text("\nNOTES\n", note1),
         .text("\n", note2),
         .text("\n", note3),
     ]
+
+    private static let note1 = """
+        The default for $E{repeats} is a random integer between 1 and 3. 
+        """
+
+    private static let note2 = """
+        The $S{lower} and $S{upper} options shadow each other; only the last one specified 
+        is applicable.
+        """
+
+    private static let note3 = """
+        Bracketed parameters in the synopsis line are not required because they have
+        explicit or implied default values. The other parametets are required.
+        """
 }
