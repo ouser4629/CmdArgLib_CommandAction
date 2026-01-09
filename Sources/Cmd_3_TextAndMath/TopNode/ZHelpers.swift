@@ -67,7 +67,7 @@ func mathWork(
         validationErrors.append("All doubles must be negative.")
     }
     if !validationErrors.isEmpty {
-        throw Exception(handledErrors: validationErrors)
+        throw Exception(formattedErrors: validationErrors)
     }
     try await Task.sleep(nanoseconds: 1_000_000)
     let result: Double
