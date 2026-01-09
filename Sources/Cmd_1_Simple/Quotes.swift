@@ -70,7 +70,8 @@ struct ComputingQuotes {
         l lower: Flag, u upper: Flag, _ count: Count,
         help: MetaFlag = MetaFlag(helpElements: helpForComputingQuotes),
         m__manpage manpage: MetaFlag = MetaFlag(manPageElements: manpageForComputingQuotes)
-    ) {
+    ) throws {
+        throw Exception(handledError: "Big mistake Big mistake Big mistake Big mistake Big mistake Big mistake Big mistake Big mistake ")
         let formatter = PhraseFormatter(upper: upper, lower: lower)
         printQuotesWith(formatter, count: count, quotes: computingQuotes)
     }
