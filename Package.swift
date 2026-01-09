@@ -29,7 +29,7 @@ let package = Package(
 
     dependencies: [
 //        .package(path: "../../\(cmdArgLib)")
-        .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.2.8")
+        .package(url: "https://github.com/ouser4629/cmd-arg-lib.git", from: "0.3.0")
     ],
 
     targets: [

@@ -59,9 +59,9 @@ struct TopCommand {
 
     private static func main() async {
         do {
-            var (_, tokens) = commandLineNameAndWords()
-            if tokens.isEmpty { tokens = ["--help"] }
-            try await topCommand.run(tokens: tokens, commandPath: [])
+            var (_, words) = commandLineNameAndWords()
+            if words.isEmpty { words = ["--help"] }
+            try await topCommand.run(words: words, commandPath: [])
         } catch {
             printErrorAndExit(for: error, callNames: [topCommand.name])
         }
