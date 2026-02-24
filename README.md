@@ -1,18 +1,11 @@
-## CmdArgLib_Completion
+## CmdArgLib_CommandAction
 
 This repositiory provides three executable programs built
-using [cmd-arg-lib](https://github.com/ouser4629/cmd-arg-lib.git). The
-repository has a dual purpose.
-
-* Provide examples of how to use the `CommandAction` macro.
-* Provide examples of how to generate fish and zsh completion scripts.
-
-The programs `cf-ca1-simple` and `cf-ca2-stateful` use the `CommandAction` macro.
-These, along with `cf-print`, generate fish and zsh completion scripts.
+using the `CommandAction` macro provided by [cmd-arg-lib](https://github.com/ouser4629/cmd-arg-lib.git). 
 
 ---
 
-## 
+## The Assisted Command Example
 
 
 ### Top Level
@@ -97,7 +90,6 @@ Quote
   WHERE ALL THINK ALIKE, NO ONE THINKS VERY MUCH. - WALTER LIPPMANN
 ```
 
-
 ## Installation
 
 Download and install [cal-arg-lib-package-manager](https://github.com/ouser4629/cmd-arg-lib-package-manager.git).
@@ -122,11 +114,7 @@ cf-ca3-assisted
     installed "cf-ca3-assisted" in /Users/po/.local/bin
     installed "cf-ca3-assisted.fish" in /Users/po/.config/fish/completions
     installed "_cf-ca3-assisted" in /Users/po/.config/zsh/completions
-cf-print
-    installed "cf-print" in /Users/po/.local/bin
-    installed "cf-print.fish" in /Users/po/.config/fish/completions
-    installed "_cf-print" in /Users/po/.config/zsh/completions
-cd ../..
+cd ..
 rm -rf Temp
 ```
 
