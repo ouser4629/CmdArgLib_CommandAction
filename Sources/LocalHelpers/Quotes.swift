@@ -22,7 +22,6 @@ public let generalQuotes: [(String, Author)] = [
     ("Simplicity is complexity resolved.", "Constantin Brancusi"),
     ("Well done is better than well said.", "Benjamin Franklin"),
     ("Where all think alike, no one thinks very much.", "Walter Lippmann"),
-    ("The bigger the humbug, the better people will like it.", "P.T. Barnum"),
 ]
 
 public let computingQuotes: [(Quote, Author)] = [
